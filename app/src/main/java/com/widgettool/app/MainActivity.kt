@@ -71,22 +71,22 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
-        binding.btnManage.setOnClickListener {
+        binding.btnManage?.setOnClickListener {
             toggleManageMode()
         }
 
-        binding.tvSelectAll.setOnClickListener {
+        binding.tvSelectAll?.setOnClickListener {
             if (adapter.isAllSelected()) {
                 adapter.clearSelection()
-                binding.tvSelectAll.text = getString(R.string.select_all)
+                binding.tvSelectAll?.text = getString(R.string.select_all)
             } else {
                 adapter.selectAll()
-                binding.tvSelectAll.text = getString(R.string.cancel)
+                binding.tvSelectAll?.text = getString(R.string.cancel)
             }
             updateDeleteButton()
         }
 
-        binding.btnDeleteSelected.setOnClickListener {
+        binding.btnDeleteSelected?.setOnClickListener {
             deleteSelectedWidgets()
         }
     }
@@ -95,24 +95,24 @@ class MainActivity : AppCompatActivity() {
         val isManage = !adapter.isManageMode()
         adapter.setManageMode(isManage)
         if (isManage) {
-            binding.btnManage.text = getString(R.string.done)
+            binding.btnManage?.text = getString(R.string.done)
             binding.btnAdd.visibility = android.view.View.GONE
             binding.btnSettings.visibility = android.view.View.GONE
-            binding.bottomBar.visibility = android.view.View.VISIBLE
+            binding.bottomBar?.visibility = android.view.View.VISIBLE
         } else {
-            binding.btnManage.text = getString(R.string.manage)
+            binding.btnManage?.text = getString(R.string.manage)
             binding.btnAdd.visibility = android.view.View.VISIBLE
             binding.btnSettings.visibility = android.view.View.VISIBLE
-            binding.bottomBar.visibility = android.view.View.GONE
+            binding.bottomBar?.visibility = android.view.View.GONE
         }
-        binding.tvSelectAll.text = getString(R.string.select_all)
+        binding.tvSelectAll?.text = getString(R.string.select_all)
         updateDeleteButton()
     }
 
     private fun updateDeleteButton() {
         val count = adapter.getSelectedCount()
-        binding.btnDeleteSelected.isEnabled = count > 0
-        binding.btnDeleteSelected.alpha = if (count > 0) 1f else 0.5f
+        binding.btnDeleteSelected?.isEnabled = count > 0
+        binding.btnDeleteSelected?.alpha = if (count > 0) 1f else 0.5f
     }
 
     private fun deleteSelectedWidgets() {
