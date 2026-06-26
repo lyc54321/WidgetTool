@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#07C160</color>
+    <color name="primary_dark">#06AD56</color>
+    <color name="primary_light">#33D17A</color>
+    <color name="background">#F5F5F5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_primary">#191919</color>
+    <color name="text_secondary">#888888</color>
+    <color name="divider">#E5E5E5</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="wooden_fish">#8B4513</color>
+    <color name="wooden_fish_dark">#6B3410</color>
+    <color name="countdown_bg">#1a1a2e</color>
+    <color name="countdown_text">#e94560</color>
+</resources>

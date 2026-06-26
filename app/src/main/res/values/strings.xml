@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">组件工具箱</string>
+    <string name="add_widget">添加组件</string>
+    <string name="settings">设置</string>
+    <string name="image_widget">图片组件</string>
+    <string name="wooden_fish_widget">木鱼组件</string>
+    <string name="countdown_widget">倒计时组件</string>
+    <string name="select_widget_type">选择组件类型</string>
+    <string name="image_widget_desc">可自定义图片的桌面组件</string>
+    <string name="wooden_fish_widget_desc">功德+1的木鱼组件</string>
+    <string name="countdown_widget_desc">倒计时提醒组件</string>
+    <string name="select_image">选择图片</string>
+    <string name="sound_settings">音效设置</string>
+    <string name="click_action">点击动作</string>
+    <string name="open_app">打开应用</string>
+    <string name="open_url">打开网页</string>
+    <string name="no_action">无动作</string>
+    <string name="opacity">不透明度</string>
+    <string name="size">大小</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="merit">功德</string>
+    <string name="reset">归零</string>
+    <string name="countdown">倒计时</string>
+    <string name="start">开始</string>
+    <string name="pause">暂停</string>
+    <string name="reset_countdown">重置</string>
+    <string name="set_time">设置时间</string>
+    <string name="finished">已完成</string>
+    <string name="widget_config">选择组件</string>
+    <string name="select_widget_to_bind">选择要绑定的组件</string>
+</resources>
