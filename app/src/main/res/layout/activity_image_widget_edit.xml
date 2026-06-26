@@ -150,6 +150,68 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/layoutSoundOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"
+                android:visibility="gone">
+
+                <RadioGroup
+                    android:id="@+id/rgSoundType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbDefaultSound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/default_sound"
+                        android:checked="true"
+                        android:layout_marginEnd="16dp" />
+
+                    <RadioButton
+                        android:id="@+id/rbCustomSound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/custom_sound" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/layoutCustomSound"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tvSelectedSound"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="未选择音效"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:padding="10dp"
+                        android:background="@drawable/widget_card_bg"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <Button
+                        android:id="@+id/btnSelectSound"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/select_sound"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/primary" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -199,14 +261,33 @@
 
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/etOpenAppPackage"
+            <LinearLayout
+                android:id="@+id/layoutOpenApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="应用包名"
-                android:layout_marginTop="8dp"
-                android:visibility="gone"
-                android:inputType="text" />
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvSelectedApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_app_selected"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:padding="12dp"
+                    android:background="@drawable/widget_card_bg" />
+
+                <Button
+                    android:id="@+id/btnSelectApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_app"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/primary" />
+
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/etOpenUrl"

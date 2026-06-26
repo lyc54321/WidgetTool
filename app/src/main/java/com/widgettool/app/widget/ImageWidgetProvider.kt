@@ -116,8 +116,18 @@ class ImageWidgetProvider : AppWidgetProvider() {
         val widget = getWidgetItem(context, appWidgetId) ?: return
         val data = widget.imageData ?: return
 
-        if (data.soundEnabled && data.soundUri.isNotEmpty()) {
-            SoundPlayer.getInstance(context).playSound(Uri.parse(data.soundUri))
+        if (data.soundEnabled) {
+            val soundPlayer = SoundPlayer.getInstance(context)
+            if (data.soundUri.isNotEmpty()) {
+                if (data.soundUri.startsWith("/")) {
+                    val soundFile = File(data.soundUri)
+                    if (soundFile.exists()) {
+                        soundPlayer.playSound(Uri.fromFile(soundFile))
+                    }
+                } else {
+                    soundPlayer.playSound(Uri.parse(data.soundUri))
+                }
+            }
         }
 
         when (data.clickAction) {

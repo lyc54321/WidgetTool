@@ -17,12 +17,56 @@ class WidgetListAdapter(
     private val onItemLongClick: (WidgetItem) -> Unit
 ) : ListAdapter<WidgetItem, WidgetListAdapter.WidgetViewHolder>(DiffCallback()) {
 
+    private var isManageMode = false
+    private val selectedItems = HashSet<String>()
+
+    fun setManageMode(enabled: Boolean) {
+        isManageMode = enabled
+        if (!enabled) selectedItems.clear()
+        notifyDataSetChanged()
+    }
+
+    fun isManageMode(): Boolean = isManageMode
+
+    fun toggleSelection(id: String) {
+        if (selectedItems.contains(id)) {
+            selectedItems.remove(id)
+        } else {
+            selectedItems.add(id)
+        }
+        notifyDataSetChanged()
+    }
+
+    fun selectAll() {
+        for (i in 0 until itemCount) {
+            selectedItems.add(getItem(i).id)
+        }
+        notifyDataSetChanged()
+    }
+
+    fun clearSelection() {
+        selectedItems.clear()
+        notifyDataSetChanged()
+    }
+
+    fun getSelectedCount(): Int = selectedItems.size
+
+    fun getSelectedIds(): List<String> = selectedItems.toList()
+
+    fun isAllSelected(): Boolean {
+        return itemCount > 0 && selectedItems.size == itemCount
+    }
+
     inner class WidgetViewHolder(private val binding: ItemWidgetBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: WidgetItem) {
             binding.tvWidgetName.text = item.name
             binding.tvWidgetType.text = getTypeString(item.type)
+
+            val isSelected = selectedItems.contains(item.id)
+            binding.cbSelect.visibility = if (isManageMode) android.view.View.VISIBLE else android.view.View.GONE
+            binding.cbSelect.isChecked = isSelected
 
             when (item.type) {
                 WidgetType.IMAGE -> {
@@ -62,10 +106,16 @@ class WidgetListAdapter(
             }
 
             binding.cardWidget.setOnClickListener {
-                onItemClick(item)
+                if (isManageMode) {
+                    toggleSelection(item.id)
+                } else {
+                    onItemClick(item)
+                }
             }
             binding.cardWidget.setOnLongClickListener {
-                onItemLongClick(item)
+                if (!isManageMode) {
+                    onItemLongClick(item)
+                }
                 true
             }
         }

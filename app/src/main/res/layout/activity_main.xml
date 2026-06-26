@@ -24,6 +24,17 @@
             android:text="@string/app_name"
             style="@style/TopBarTitle" />
 
+        <TextView
+            android:id="@+id/btnManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manage"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
         <ImageButton
             android:id="@+id/btnAdd"
             android:layout_width="40dp"
@@ -41,15 +52,60 @@
             android:src="@drawable/ic_settings"
             android:contentDescription="@string/settings"
             android:scaleType="centerInside"
-            android:layout_marginStart="8dp" />
+            android:layout_marginStart="4dp" />
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvWidgets"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:padding="8dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWidgets"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="8dp" />
+
+        <LinearLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:elevation="8dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvSelectAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_all"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:padding="8dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnDeleteSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete_selected"
+                android:backgroundTint="#E53935"
+                android:enabled="false"
+                android:alpha="0.5" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>
